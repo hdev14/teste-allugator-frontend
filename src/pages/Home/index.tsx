@@ -1,7 +1,11 @@
 import React from 'react';
 
+import Employees from '../../components/Employees';
+
 const Home = () => {
-  return (<div>home</div>);
+  return (
+    <Employees employees={[]} setEmployees={() => {}} />
+  );
 };
 
 export default Home;

@@ -35,6 +35,11 @@ input, textarea, button {
   font-size: 1.4rem;
 }
 
+button {
+  cursor: pointer;
+  border: none;
+}
+
 h1 {
   font-size: 2.8rem;
 }
