@@ -9,6 +9,13 @@ const Global = createGlobalStyle`
   box-sizing: border-box;
 }
 
+:root {
+  --white: #effffb;
+  --green: #50d890;
+  --blue: #4f98ca;
+  --black: #272727;
+}
+
 html {
   font-size: 10px; /* 1rem */
 }
@@ -16,6 +23,7 @@ html {
 body {
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
   overflow-x: hidden;
+  background-color: var(--white);
 }
 
 a {
