@@ -12,20 +12,37 @@ export const Container = styled.div`
     background-color: white;
     border-radius: 3.5px;
 
-    form {
-      padding: 10px;
+    div.forms {
       display: flex;
-      justify-content: flex-start;
-      align-items: flex-end;
+      align-items: center;
+      justify-content: space-between;
 
-      input {
-        margin-top: 5px;
-        display: block;
-        width: 300px;
-        height: 36px;
-        padding-left: 10px;
-        margin-right: 5px;
+      form {
+        padding: 10px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+
+        input {
+          margin-top: 5px;
+          display: block;
+          width: 300px;
+          height: 36px;
+          padding-left: 10px;
+          margin-right: 5px;
+        }
       }
+
+      label#searchs {
+        font-size: 1.6rem;
+
+        select {
+          margin-top: 5px;
+          display: block;
+          width: 200px;
+        }
+      }
+
     }
   }
 `;

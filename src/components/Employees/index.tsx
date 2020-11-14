@@ -1,15 +1,16 @@
 import React from 'react';
 
 import Button from '../../components/Button';
+import { EmployeeData } from '../../types';
 
 import { Container } from './styles';
 
 interface EmployeesProps {
-  employees: Array<{}>,
+  employees: EmployeeData[],
   setEmployees: any
 }
 
-const Employees: React.FC<EmployeesProps> = ({ employees = [], setEmployees }) => {
+const Employees: React.FC<EmployeesProps> = ({ employees, setEmployees }) => {
   const updateEmployee = (id: string) => {};
   const deleteEmployee = (id: string) => {};
 
@@ -32,154 +33,22 @@ const Employees: React.FC<EmployeesProps> = ({ employees = [], setEmployees }) =
           </thead>
 
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Data de cadastro</td>
-              <td>Cargo</td>
-              <td>CPF</td>
-              <td>Nome</td>
-              <td>UF de Nascimento</td>
-              <td>Salário</td>
-              <td>Status</td>
-              <td className="options">
-                <Button onChange={() => updateEmployee('id')}>editar</Button>
-                <Button btnType="danger" onChange={() => deleteEmployee('id')}>excluir</Button>
-              </td>
-            </tr>
-
-            <tr>
-              <td>1</td>
-              <td>Data de cadastro</td>
-              <td>Cargo</td>
-              <td>CPF</td>
-              <td>Nome</td>
-              <td>UF de Nascimento</td>
-              <td>Salário</td>
-              <td>Status</td>
-              <td className="options">
-                <Button onChange={() => {}}>editar</Button>
-                <Button btnType="danger" onChange={() => {}}>excluir</Button>
-              </td>
-            </tr>
-
-            <tr>
-              <td>1</td>
-              <td>Data de cadastro</td>
-              <td>Cargo</td>
-              <td>CPF</td>
-              <td>Nome</td>
-              <td>UF de Nascimento</td>
-              <td>Salário</td>
-              <td>Status</td>
-              <td className="options">
-                <Button onChange={() => {}}>editar</Button>
-                <Button btnType="danger" onChange={() => {}}>excluir</Button>
-              </td>
-            </tr>
-
-            <tr>
-              <td>1</td>
-              <td>Data de cadastro</td>
-              <td>Cargo</td>
-              <td>CPF</td>
-              <td>Nome</td>
-              <td>UF de Nascimento</td>
-              <td>Salário</td>
-              <td>Status</td>
-              <td className="options">
-                <Button onChange={() => {}}>editar</Button>
-                <Button btnType="danger" onChange={() => {}}>excluir</Button>
-              </td>
-            </tr>
-
-            <tr>
-              <td>1</td>
-              <td>Data de cadastro</td>
-              <td>Cargo</td>
-              <td>CPF</td>
-              <td>Nome</td>
-              <td>UF de Nascimento</td>
-              <td>Salário</td>
-              <td>Status</td>
-              <td className="options">
-                <Button onChange={() => {}}>editar</Button>
-                <Button btnType="danger" onChange={() => {}}>excluir</Button>
-              </td>
-            </tr>
-
-            <tr>
-              <td>1</td>
-              <td>Data de cadastro</td>
-              <td>Cargo</td>
-              <td>CPF</td>
-              <td>Nome</td>
-              <td>UF de Nascimento</td>
-              <td>Salário</td>
-              <td>Status</td>
-              <td className="options">
-                <Button onChange={() => {}}>editar</Button>
-                <Button btnType="danger" onChange={() => {}}>excluir</Button>
-              </td>
-            </tr>
-
-            <tr>
-              <td>1</td>
-              <td>Data de cadastro</td>
-              <td>Cargo</td>
-              <td>CPF</td>
-              <td>Nome</td>
-              <td>UF de Nascimento</td>
-              <td>Salário</td>
-              <td>Status</td>
-              <td className="options">
-                <Button onChange={() => {}}>editar</Button>
-                <Button btnType="danger" onChange={() => {}}>excluir</Button>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Data de cadastro</td>
-              <td>Cargo</td>
-              <td>CPF</td>
-              <td>Nome</td>
-              <td>UF de Nascimento</td>
-              <td>Salário</td>
-              <td>Status</td>
-              <td className="options">
-                <Button onChange={() => {}}>editar</Button>
-                <Button btnType="danger" onChange={() => {}}>excluir</Button>
-              </td>
-            </tr>
-
-            <tr>
-              <td>1</td>
-              <td>Data de cadastro</td>
-              <td>Cargo</td>
-              <td>CPF</td>
-              <td>Nome</td>
-              <td>UF de Nascimento</td>
-              <td>Salário</td>
-              <td>Status</td>
-              <td className="options">
-                <Button onChange={() => {}}>editar</Button>
-                <Button btnType="danger" onChange={() => {}}>excluir</Button>
-              </td>
-            </tr>
-
-            <tr>
-              <td>1</td>
-              <td>Data de cadastro</td>
-              <td>Cargo</td>
-              <td>CPF</td>
-              <td>Nome</td>
-              <td>UF de Nascimento</td>
-              <td>Salário</td>
-              <td>Status</td>
-              <td className="options">
-                <Button onChange={() => {}}>editar</Button>
-                <Button btnType="danger" onChange={() => {}}>excluir</Button>
-              </td>
-            </tr>
+            {employees.map((employee, index) => (
+              <tr key={employee._id}>
+                <td>{index}</td>
+                <td>{employee.datacad}</td>
+                <td>{employee.cargo}</td>
+                <td>{employee.cpf}</td>
+                <td>{employee.nome}</td>
+                <td>{employee.ufnasc}</td>
+                <td>{employee.salario}</td>
+                <td>{employee.status}</td>
+                <td className="options">
+                  <Button onChange={() => updateEmployee('id')}>editar</Button>
+                  <Button btnType="danger" onChange={() => deleteEmployee('id')}>excluir</Button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

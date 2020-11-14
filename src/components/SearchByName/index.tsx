@@ -1,11 +1,26 @@
 import React, { useState } from 'react';
+
+import httpClient from '../../http-client';
+import { EmployeeData } from '../../types';
 import Button from '../Button';
 
-const SearchByName: React.FC = () => {
+interface SearchByNameProps {
+  setEmployees: (employees: EmployeeData[]) => void
+}
+const SearchByName: React.FC<SearchByNameProps> = ({ setEmployees }) => {
   const [name, setName] = useState('');
 
-  const submitHandler = () => {
+  const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
+    if (!name) return;
+
+    try {
+      const response = await httpClient.get<EmployeeData[]>(`/employees/name?name=${name}`);
+      setEmployees(response.data);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
