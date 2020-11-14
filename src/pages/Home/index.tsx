@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 import Button from '../../components/Button';
+import EmployeeForm from '../../components/EmployeeForm';
 import Employees from '../../components/Employees';
+import Load from '../../components/Load';
 import Modal, { ModalHandler } from '../../components/Modal';
 import SearchByCPF from '../../components/SearchByCPF';
 import SearchByName from '../../components/SearchByName';
@@ -27,6 +29,7 @@ const forms = {
 type Search = 'searchByName' | 'searchByCPF' | 'searchByRole' | 'searchBySalary' | 'searchByUF' | 'searchByStatus' | 'searchByRegisterDate'
 
 const Home = () => {
+  const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState<Search>('searchByName');
   const [employees, setEmployees] = useState<EmployeeData[]>([]);
   const newEmployeeModalRef = useRef<ModalHandler>(null);
@@ -34,10 +37,13 @@ const Home = () => {
   useEffect(() => {
     ((async function fetchEmployees() {
       try {
+        setLoading(true);
         const response = await httpClient.get<EmployeeData[]>('/employees/salary?min=0&max=20000');
         setEmployees(response.data);
       } catch (err) {
-        console.log(err);
+        console.error(err);
+      } finally {
+        setLoading(false);
       }
     })());
   }, [search]);
@@ -73,6 +79,8 @@ const Home = () => {
     }
   };
 
+  if (loading) return <Load />;
+
   return (
     <Container>
       <header>
@@ -104,8 +112,16 @@ const Home = () => {
         <Employees employees={employees} setEmployees={setEmployees} />
       </div>
 
-      <Modal ref={newEmployeeModalRef} confirm={() => {}} confirm_text="salvar">
-        Hellow
+      <Modal
+        ref={newEmployeeModalRef}
+        formId="employee-form"
+        confirm_text="salvar"
+      >
+        <EmployeeForm
+          employees={employees}
+          setEmployees={setEmployees}
+          toggleModal={toggleNewEmployeeModal}
+        />
       </Modal>
     </Container>
   );

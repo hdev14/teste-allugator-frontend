@@ -7,12 +7,13 @@ interface ButtonProps {
   onClick?: any,
   btnType?: 'success' | 'primary' | 'secundary' | 'danger'
   type?: 'button' | 'submit' | 'reset'
+  form?: string
 }
 
 const Button: React.FC<ButtonProps> = ({
-  children, onClick, btnType = 'primary', type = 'button',
+  children, onClick, btnType = 'primary', type = 'button', form,
 }) => (
-  <Btn type={type} btnType={btnType} onClick={onClick}>
+  <Btn type={type} form={form} btnType={btnType} onClick={onClick}>
     {children}
   </Btn>
 );

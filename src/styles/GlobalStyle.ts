@@ -51,6 +51,11 @@ p {
   text-transform: initial;
   font-size: 1.6rem;
 }
+
+.Toastify__toast {
+  font-size: 1.6rem;
+}
+
 `;
 
 export default Global;
