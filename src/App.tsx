@@ -1,9 +1,6 @@
 import React from 'react';
+import Home from './pages/Home';
 
-import Routes from './Routes';
-
-const App: React.FC = () => (
-  <Routes />
-);
+const App: React.FC = () => <Home />;
 
 export default App;

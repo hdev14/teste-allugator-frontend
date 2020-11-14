@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import Button from '../../components/Button';
 import Employees from '../../components/Employees';
+import Modal, { ModalHandler } from '../../components/Modal';
 import SearchByCPF from '../../components/SearchByCPF';
 import SearchByName from '../../components/SearchByName';
 import SearchByRegisterDate from '../../components/SearchByRegisterDate';
@@ -28,6 +29,7 @@ type Search = 'searchByName' | 'searchByCPF' | 'searchByRole' | 'searchBySalary'
 const Home = () => {
   const [search, setSearch] = useState<Search>('searchByName');
   const [employees, setEmployees] = useState<EmployeeData[]>([]);
+  const newEmployeeModalRef = useRef<ModalHandler>(null);
 
   useEffect(() => {
     ((async function fetchEmployees() {
@@ -39,6 +41,10 @@ const Home = () => {
       }
     })());
   }, [search]);
+
+  const toggleNewEmployeeModal = () => {
+    newEmployeeModalRef.current?.toggleModal();
+  };
 
   const onChangeSelectHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
     switch (e.target.value) {
@@ -71,7 +77,7 @@ const Home = () => {
     <Container>
       <header>
         <h2>Funcionários</h2>
-        <Button btnType="success" onClick={() => {}}>novo funcionário</Button>
+        <Button btnType="success" onClick={toggleNewEmployeeModal}>novo funcionário</Button>
       </header>
 
       <div className="white-container">
@@ -97,6 +103,10 @@ const Home = () => {
 
         <Employees employees={employees} setEmployees={setEmployees} />
       </div>
+
+      <Modal ref={newEmployeeModalRef} confirm={() => {}} confirm_text="salvar">
+        Hellow
+      </Modal>
     </Container>
   );
 };
