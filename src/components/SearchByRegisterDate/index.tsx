@@ -27,6 +27,7 @@ const SearchByRegisterDate: React.FC<SearchByRegisterDateProps> = ({ setEmployee
   return (
     <form onSubmit={submitHandler}>
       <InputMask
+        required
         type="text"
         name="register-date"
         placeholder="DD/MM/AAAA"

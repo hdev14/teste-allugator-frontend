@@ -12,12 +12,12 @@ export const Btn = styled.button<{ btnType: string }>`
   transition: opacity .2s ease-in;
   opacity: 1;
   width: auto;
+  color: white;
 
   ${({ btnType }) => {
     switch (btnType) {
       case 'primary':
         return css`
-          color: white;
           background-color: var(--blue);
         `;
       case 'secundary':
@@ -27,12 +27,10 @@ export const Btn = styled.button<{ btnType: string }>`
         `;
       case 'danger':
         return css`
-          color: white;
           background-color: tomato;
         `;
       default:
         return css`
-          color: var(--black);
           background-color: var(--green);
         `;
     }

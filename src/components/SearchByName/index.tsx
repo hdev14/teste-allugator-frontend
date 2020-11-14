@@ -26,6 +26,7 @@ const SearchByName: React.FC<SearchByNameProps> = ({ setEmployees }) => {
   return (
     <form onSubmit={submitHandler}>
       <input
+        required
         type="text"
         name="name"
         placeholder="Digite o nome do funcionário"

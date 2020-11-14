@@ -27,6 +27,7 @@ const SearchByCPF: React.FC<SearchByCPFProps> = ({ setEmployees }) => {
   return (
     <form onSubmit={submitHandler}>
       <input
+        required
         type="text"
         name="cpf"
         placeholder="Digite o CPF do funcionário"

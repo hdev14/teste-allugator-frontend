@@ -26,6 +26,7 @@ const SearchByUF: React.FC<SearchByUFProps> = ({ setEmployees }) => {
   return (
     <form onSubmit={submitHandler}>
       <input
+        required
         type="text"
         name="uf"
         placeholder="Digite o UF"

@@ -26,6 +26,7 @@ const SearchByRole: React.FC<SearchByRoleProps> = ({ setEmployees }) => {
   return (
     <form onSubmit={submitHandler}>
       <input
+        required
         type="text"
         name="role"
         placeholder="Digite o cargo do funcionário"
