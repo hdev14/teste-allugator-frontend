@@ -6,20 +6,16 @@ import { Container } from './styles';
 
 interface EmployeesProps {
   employees: Array<{}>,
-  setEmployees: any,
-  title?: string
+  setEmployees: any
 }
 
-const Employees: React.FC<EmployeesProps> = ({ employees = [], setEmployees, title = 'Funcionários' }) => {
+const Employees: React.FC<EmployeesProps> = ({ employees = [], setEmployees }) => {
   const updateEmployee = (id: string) => {};
   const deleteEmployee = (id: string) => {};
 
   return (
     <Container>
-      <h2>{title}</h2>
-
       <div className="employees">
-
         <table>
           <thead>
             <tr>
@@ -47,7 +43,7 @@ const Employees: React.FC<EmployeesProps> = ({ employees = [], setEmployees, tit
               <td>Status</td>
               <td className="options">
                 <Button onChange={() => updateEmployee('id')}>editar</Button>
-                <Button btnType="danger" onChange={() => deleteEmployee('id')}>editar</Button>
+                <Button btnType="danger" onChange={() => deleteEmployee('id')}>excluir</Button>
               </td>
             </tr>
 
@@ -61,8 +57,127 @@ const Employees: React.FC<EmployeesProps> = ({ employees = [], setEmployees, tit
               <td>Salário</td>
               <td>Status</td>
               <td className="options">
-                <Button onChange={() => {}}>Excluir</Button>
-                <Button btnType="danger" onChange={() => {}}>Editar</Button>
+                <Button onChange={() => {}}>editar</Button>
+                <Button btnType="danger" onChange={() => {}}>excluir</Button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>1</td>
+              <td>Data de cadastro</td>
+              <td>Cargo</td>
+              <td>CPF</td>
+              <td>Nome</td>
+              <td>UF de Nascimento</td>
+              <td>Salário</td>
+              <td>Status</td>
+              <td className="options">
+                <Button onChange={() => {}}>editar</Button>
+                <Button btnType="danger" onChange={() => {}}>excluir</Button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>1</td>
+              <td>Data de cadastro</td>
+              <td>Cargo</td>
+              <td>CPF</td>
+              <td>Nome</td>
+              <td>UF de Nascimento</td>
+              <td>Salário</td>
+              <td>Status</td>
+              <td className="options">
+                <Button onChange={() => {}}>editar</Button>
+                <Button btnType="danger" onChange={() => {}}>excluir</Button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>1</td>
+              <td>Data de cadastro</td>
+              <td>Cargo</td>
+              <td>CPF</td>
+              <td>Nome</td>
+              <td>UF de Nascimento</td>
+              <td>Salário</td>
+              <td>Status</td>
+              <td className="options">
+                <Button onChange={() => {}}>editar</Button>
+                <Button btnType="danger" onChange={() => {}}>excluir</Button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>1</td>
+              <td>Data de cadastro</td>
+              <td>Cargo</td>
+              <td>CPF</td>
+              <td>Nome</td>
+              <td>UF de Nascimento</td>
+              <td>Salário</td>
+              <td>Status</td>
+              <td className="options">
+                <Button onChange={() => {}}>editar</Button>
+                <Button btnType="danger" onChange={() => {}}>excluir</Button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>1</td>
+              <td>Data de cadastro</td>
+              <td>Cargo</td>
+              <td>CPF</td>
+              <td>Nome</td>
+              <td>UF de Nascimento</td>
+              <td>Salário</td>
+              <td>Status</td>
+              <td className="options">
+                <Button onChange={() => {}}>editar</Button>
+                <Button btnType="danger" onChange={() => {}}>excluir</Button>
+              </td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Data de cadastro</td>
+              <td>Cargo</td>
+              <td>CPF</td>
+              <td>Nome</td>
+              <td>UF de Nascimento</td>
+              <td>Salário</td>
+              <td>Status</td>
+              <td className="options">
+                <Button onChange={() => {}}>editar</Button>
+                <Button btnType="danger" onChange={() => {}}>excluir</Button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>1</td>
+              <td>Data de cadastro</td>
+              <td>Cargo</td>
+              <td>CPF</td>
+              <td>Nome</td>
+              <td>UF de Nascimento</td>
+              <td>Salário</td>
+              <td>Status</td>
+              <td className="options">
+                <Button onChange={() => {}}>editar</Button>
+                <Button btnType="danger" onChange={() => {}}>excluir</Button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>1</td>
+              <td>Data de cadastro</td>
+              <td>Cargo</td>
+              <td>CPF</td>
+              <td>Nome</td>
+              <td>UF de Nascimento</td>
+              <td>Salário</td>
+              <td>Status</td>
+              <td className="options">
+                <Button onChange={() => {}}>editar</Button>
+                <Button btnType="danger" onChange={() => {}}>excluir</Button>
               </td>
             </tr>
           </tbody>

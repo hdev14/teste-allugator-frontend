@@ -38,6 +38,7 @@
     "no-use-before-define": "off",
     "jsx-a11y/control-has-associated-label": "off",
     "camelcase": "off",
-    "consistent-return": "off"
+    "consistent-return": "off",
+    "react/jsx-props-no-spreading": "off"
   }
 }

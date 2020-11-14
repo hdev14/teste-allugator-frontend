@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 export const Btn = styled.button<{ btnType: string }>`
   display: grid;
   place-items: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
   text-transform: uppercase;
   width: 100px;
   font-weight: bold;
@@ -11,6 +11,7 @@ export const Btn = styled.button<{ btnType: string }>`
   border-radius: 2.5px;
   transition: opacity .2s ease-in;
   opacity: 1;
+  width: auto;
 
   ${({ btnType }) => {
     switch (btnType) {
@@ -21,8 +22,8 @@ export const Btn = styled.button<{ btnType: string }>`
         `;
       case 'secundary':
         return css`
-          color: white;
-          background-color: var(--black);
+          color: var(--black);
+          background-color: lightgray;
         `;
       case 'danger':
         return css`
@@ -30,6 +31,10 @@ export const Btn = styled.button<{ btnType: string }>`
           background-color: tomato;
         `;
       default:
+        return css`
+          color: var(--black);
+          background-color: var(--green);
+        `;
     }
   }}
 

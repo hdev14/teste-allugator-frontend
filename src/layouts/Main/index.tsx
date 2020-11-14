@@ -1,33 +1,24 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-import { Container, Sidebar } from './styles';
+import { Container, Navbar } from './styles';
 
 const Main: React.FC = ({ children }) => (
   <Container>
-    <Sidebar>
-      <h2>Consultas de Funcionários</h2>
+    <Navbar>
+      <h2>Teste Allugator</h2>
+    </Navbar>
 
-      <nav>
-        <Link to="/">Consulta por Something</Link>
-        <Link to="/">Consulta por Something</Link>
-        <Link to="/">Consulta por Something</Link>
-        <Link to="/">Consulta por Something</Link>
-        <Link to="/">Consulta por Something</Link>
-        <Link to="/">Consulta por Something</Link>
-      </nav>
-
-      <footer>
-        <small>
-          Desenvolvido por
-          {' '}
-          <strong>hdev</strong>
-        </small>
-      </footer>
-    </Sidebar>
     <main>
       {children}
     </main>
+
+    <footer>
+      <small>
+        Desenvolvido por
+        {' '}
+        <strong>hdev</strong>
+      </small>
+    </footer>
   </Container>
 );
 

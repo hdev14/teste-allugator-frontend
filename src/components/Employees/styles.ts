@@ -1,16 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-
-  div.employees {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: white;
-    border-radius: 3.5px;
-  }
-
   table {
-    margin-top: 30px;
+    margin-top: 20px;
     font-size: 1.4rem;
     width: 100%;
     border-collapse: collapse;

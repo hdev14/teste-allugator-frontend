@@ -22,7 +22,6 @@ html {
 
 body {
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
-  overflow-x: hidden;
   background-color: var(--white);
 }
 
