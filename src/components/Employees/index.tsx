@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Button from '../../components/Button';
+import httpClient from '../../http-client';
 import { EmployeeData } from '../../types';
 
 import { Container } from './styles';
@@ -11,8 +12,19 @@ interface EmployeesProps {
 }
 
 const Employees: React.FC<EmployeesProps> = ({ employees, setEmployees }) => {
-  const updateEmployee = (id: string) => {};
-  const deleteEmployee = (id: string) => {};
+  const updateEmployee = (cpf: string) => {};
+
+  const deleteEmployee = (cpf: string) => {
+    ((async () => {
+      try {
+        await httpClient.delete(`/employees/${cpf}`);
+        const newData = employees.filter((e) => e.cpf !== cpf);
+        setEmployees(newData);
+      } catch (err) {
+        console.log(err);
+      }
+    })());
+  };
 
   return (
     <Container>
@@ -50,8 +62,13 @@ const Employees: React.FC<EmployeesProps> = ({ employees, setEmployees }) => {
                     <td>{employee.salario}</td>
                     <td>{employee.status}</td>
                     <td className="options">
-                      <Button onChange={() => updateEmployee('id')}>editar</Button>
-                      <Button btnType="danger" onChange={() => deleteEmployee('id')}>excluir</Button>
+                      <Button onClick={() => updateEmployee('id')}>editar</Button>
+                      <Button
+                        btnType="danger"
+                        onClick={() => deleteEmployee(employee.cpf || '')}
+                      >
+                        excluir
+                      </Button>
                     </td>
                   </tr>
                 ))}

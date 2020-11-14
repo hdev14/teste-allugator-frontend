@@ -71,7 +71,7 @@ const Home = () => {
     <Container>
       <header>
         <h2>Funcionários</h2>
-        <Button btnType="success" onChange={() => {}}>novo funcionário</Button>
+        <Button btnType="success" onClick={() => {}}>novo funcionário</Button>
       </header>
 
       <div className="white-container">
