@@ -18,7 +18,8 @@ const SearchByCPF: React.FC<SearchByCPFProps> = ({ setEmployees }) => {
 
     try {
       const response = await httpClient.get<EmployeeData>(`/employees/cpf?cpf=${cpf}`);
-      setEmployees([response.data]);
+      const data = response.data ? [response.data] : [];
+      setEmployees(data);
     } catch (err) {
       console.error(err);
     }

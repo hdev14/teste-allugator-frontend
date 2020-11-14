@@ -23,6 +23,10 @@ export const Container = styled.div`
         justify-content: flex-start;
         align-items: flex-end;
 
+        label {
+          font-size: 1.4rem;
+        }
+
         input {
           margin-top: 5px;
           display: block;

@@ -33,22 +33,30 @@ const Employees: React.FC<EmployeesProps> = ({ employees, setEmployees }) => {
           </thead>
 
           <tbody>
-            {employees.map((employee, index) => (
-              <tr key={employee._id}>
-                <td>{index}</td>
-                <td>{employee.datacad}</td>
-                <td>{employee.cargo}</td>
-                <td>{employee.cpf}</td>
-                <td>{employee.nome}</td>
-                <td>{employee.ufnasc}</td>
-                <td>{employee.salario}</td>
-                <td>{employee.status}</td>
-                <td className="options">
-                  <Button onChange={() => updateEmployee('id')}>editar</Button>
-                  <Button btnType="danger" onChange={() => deleteEmployee('id')}>excluir</Button>
-                </td>
+            {employees.length === 0 ? (
+              <tr>
+                <td colSpan={9}>Nenhum funcionário encontrado.</td>
               </tr>
-            ))}
+            ) : (
+              <>
+                {employees.map((employee, index) => (
+                  <tr key={employee._id}>
+                    <td>{index}</td>
+                    <td>{employee.datacad}</td>
+                    <td>{employee.cargo}</td>
+                    <td>{employee.cpf}</td>
+                    <td>{employee.nome}</td>
+                    <td>{employee.ufnasc}</td>
+                    <td>{employee.salario}</td>
+                    <td>{employee.status}</td>
+                    <td className="options">
+                      <Button onChange={() => updateEmployee('id')}>editar</Button>
+                      <Button btnType="danger" onChange={() => deleteEmployee('id')}>excluir</Button>
+                    </td>
+                  </tr>
+                ))}
+              </>
+            )}
           </tbody>
         </table>
       </div>

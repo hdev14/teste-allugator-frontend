@@ -38,7 +38,7 @@ const Home = () => {
         console.log(err);
       }
     })());
-  }, []);
+  }, [search]);
 
   const onChangeSelectHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
     switch (e.target.value) {
@@ -73,6 +73,7 @@ const Home = () => {
         <h2>Funcionários</h2>
         <Button btnType="success" onChange={() => {}}>novo funcionário</Button>
       </header>
+
       <div className="white-container">
         <div className="forms">
 
