@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
+import { toast } from 'react-toastify';
 
 import Button from '../../components/Button';
 import httpClient from '../../http-client';
 import { EmployeeData } from '../../types';
+import EmployeeForm from '../EmployeeForm';
+import Modal, { ModalHandler } from '../Modal';
 
 import { Container } from './styles';
 
@@ -12,7 +15,17 @@ interface EmployeesProps {
 }
 
 const Employees: React.FC<EmployeesProps> = ({ employees, setEmployees }) => {
-  const updateEmployee = (cpf: string) => {};
+  const [selectedId, setSelectedId] = useState('');
+  const editEmployeeModalRef = useRef<ModalHandler>(null);
+
+  const toggleEditEmployeeModal = () => {
+    editEmployeeModalRef.current?.toggleModal();
+  };
+
+  const updateEmployee = (id: string) => {
+    setSelectedId(id);
+    toggleEditEmployeeModal();
+  };
 
   const deleteEmployee = (cpf: string) => {
     ((async () => {
@@ -20,8 +33,9 @@ const Employees: React.FC<EmployeesProps> = ({ employees, setEmployees }) => {
         await httpClient.delete(`/employees/${cpf}`);
         const newData = employees.filter((e) => e.cpf !== cpf);
         setEmployees(newData);
+        toast.success('Funcionario excluído');
       } catch (err) {
-        console.log(err);
+        toast.error('Não foi possivel excluir o funcionário');
       }
     })());
   };
@@ -62,7 +76,7 @@ const Employees: React.FC<EmployeesProps> = ({ employees, setEmployees }) => {
                     <td>{employee.salario}</td>
                     <td>{employee.status}</td>
                     <td className="options">
-                      <Button onClick={() => updateEmployee('id')}>editar</Button>
+                      <Button onClick={() => updateEmployee(employee._id || '')}>editar</Button>
                       <Button
                         btnType="danger"
                         onClick={() => deleteEmployee(employee.cpf || '')}
@@ -77,6 +91,20 @@ const Employees: React.FC<EmployeesProps> = ({ employees, setEmployees }) => {
           </tbody>
         </table>
       </div>
+
+      <Modal
+        ref={editEmployeeModalRef}
+        formId="employee-form"
+        confirm_text="atualizar"
+      >
+        <EmployeeForm
+          employeeId={selectedId}
+          employees={employees}
+          setEmployees={setEmployees}
+          toggleModal={toggleEditEmployeeModal}
+          initialData={employees.find((e) => e._id === selectedId)}
+        />
+      </Modal>
     </Container>
   );
 };
