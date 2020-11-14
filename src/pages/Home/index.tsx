@@ -94,7 +94,7 @@ const Home = () => {
           <label htmlFor="searchs" id="searchs">
             Consultar por:
             <select name="searchs" value={search} onChange={onChangeSelectHandler}>
-              <option value="searchByName" disabled>Escolha o tipo de consulta</option>
+              <option value="searchByName" disabled>Escolha o tipo da consulta</option>
               <option value="searchByRegisterDate">Data de cadastro</option>
               <option value="searchByRole">Cargo</option>
               <option value="searchByCPF">CPF</option>
