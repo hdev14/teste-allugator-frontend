@@ -1,14 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Button from '../../components/Button';
 
 import Employees from '../../components/Employees';
+import SearchByCPF from '../../components/SearchByCPF';
+import SearchByName from '../../components/SearchByName';
+import SearchByRegisterDate from '../../components/SearchByRegisterDate';
+import SearchByRole from '../../components/SearchByRole';
+import SearchBySalary from '../../components/SearchBySalary';
+import SearchByStatus from '../../components/SearchByStatus';
+import SearchByUF from '../../components/SearchByUF';
 import { Container } from './styles';
 
+const Forms = {
+  SearchByName,
+  SearchByCPF,
+  SearchByRole,
+  SearchBySalary,
+  SearchByUF,
+  SearchByStatus,
+  SearchByRegisterDate,
+};
+
 const Home = () => {
-  const [search, setSearch] = useState('');
-
-  const submitHandler = () => {};
-
   return (
     <Container>
       <header>
@@ -16,17 +29,7 @@ const Home = () => {
         <Button btnType="success" onChange={() => {}}>novo funcionário</Button>
       </header>
       <div className="white-container">
-        <form onSubmit={submitHandler}>
-          <input
-            type="text"
-            name="search"
-            placeholder="Digite o nome do funcionário"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-
-          <Button type="submit" btnType="secundary"> pesquisar </Button>
-        </form>
+        <Forms.SearchByName />
         <Employees employees={[]} setEmployees={() => {}} />
       </div>
     </Container>
