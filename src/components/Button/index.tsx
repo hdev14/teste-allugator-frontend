@@ -4,15 +4,15 @@ import { Btn } from './styles';
 
 interface ButtonProps {
   children: string,
-  onChange?: any,
+  onClick?: any,
   btnType?: 'success' | 'primary' | 'secundary' | 'danger'
   type?: 'button' | 'submit' | 'reset'
 }
 
 const Button: React.FC<ButtonProps> = ({
-  children, onChange, btnType = 'primary', type = 'button',
+  children, onClick, btnType = 'primary', type = 'button',
 }) => (
-  <Btn type={type} btnType={btnType} onChange={onChange}>
+  <Btn type={type} btnType={btnType} onClick={onClick}>
     {children}
   </Btn>
 );
