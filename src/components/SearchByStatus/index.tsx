@@ -45,4 +45,4 @@ const SearchByStatus: React.FC<SearchByStatusProps> = ({ setEmployees }) => {
   );
 };
 
-export default SearchByStatus;
+export default React.memo(SearchByStatus);

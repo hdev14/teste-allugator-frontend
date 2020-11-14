@@ -38,4 +38,4 @@ const SearchByUF: React.FC<SearchByUFProps> = ({ setEmployees }) => {
   );
 };
 
-export default SearchByUF;
+export default React.memo(SearchByUF);

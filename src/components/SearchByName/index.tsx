@@ -39,4 +39,4 @@ const SearchByName: React.FC<SearchByNameProps> = ({ setEmployees }) => {
   );
 };
 
-export default SearchByName;
+export default React.memo(SearchByName);

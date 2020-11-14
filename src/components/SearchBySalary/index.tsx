@@ -57,4 +57,4 @@ const SearchBySalary: React.FC<SearchBySalaryProps> = ({ setEmployees }) => {
   );
 };
 
-export default SearchBySalary;
+export default React.memo(SearchBySalary);

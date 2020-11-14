@@ -39,4 +39,4 @@ const SearchByRole: React.FC<SearchByRoleProps> = ({ setEmployees }) => {
   );
 };
 
-export default SearchByRole;
+export default React.memo(SearchByRole);

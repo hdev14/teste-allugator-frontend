@@ -40,4 +40,4 @@ const SearchByRegisterDate: React.FC<SearchByRegisterDateProps> = ({ setEmployee
   );
 };
 
-export default SearchByRegisterDate;
+export default React.memo(SearchByRegisterDate);

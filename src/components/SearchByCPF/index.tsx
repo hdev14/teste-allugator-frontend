@@ -41,4 +41,4 @@ const SearchByCPF: React.FC<SearchByCPFProps> = ({ setEmployees }) => {
   );
 };
 
-export default SearchByCPF;
+export default React.memo(SearchByCPF);
